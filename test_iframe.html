@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test iframe - Carte Napoleon CAMBIA</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 800px; margin: 20px auto; padding: 0 16px; }
+h1 { font-size: 1.2em; color: #5a3a1a; }
+.test-block { margin: 20px 0; padding: 12px; border: 1px solid #d4c8b0; border-radius: 6px; background: #faf7f2; }
+.test-block h2 { font-size: 0.9em; color: #666; margin: 0 0 8px 0; }
+iframe { width: 100%; height: 450px; border: 1px solid #d4c8b0; border-radius: 4px; }
+.status { font-size: 11px; color: #999; margin-top: 4px; }
+</style>
+</head>
+<body>
+<h1>Test : Carte Napoleon CAMBIA en iframe (GitHub Pages)</h1>
+
+<div class="test-block">
+<h2>1. iframe depuis GitHub Pages (comme le rapport mobile)</h2>
+<iframe src="https://clairecasanova-rgb.github.io/cadastre-napoleon-cartes/2B/CAMBIA/" loading="lazy"></iframe>
+<p class="status">URL: https://clairecasanova-rgb.github.io/cadastre-napoleon-cartes/2B/CAMBIA/</p>
+</div>
+
+<div class="test-block">
+<h2>2. Simulation : bouton Afficher/Masquer (comme dans le rapport)</h2>
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+<div style="font-weight:600;font-size:12px;color:#5a3a1a;">Carte georeferncee interactive</div>
+<button id="toggleBtn" onclick="var f=document.getElementById('test-iframe');if(f.style.display==='none'){f.style.display='';this.textContent='Masquer';}else{f.style.display='none';this.textContent='Afficher';}" style="padding:3px 10px;font-size:11px;background:#5d4e37;color:white;border:none;border-radius:3px;cursor:pointer;">Afficher</button>
+</div>
+<iframe id="test-iframe" src="https://clairecasanova-rgb.github.io/cadastre-napoleon-cartes/2B/CAMBIA/" style="display:none;width:100%;height:450px;border:1px solid #d4c8b0;border-radius:4px;" loading="lazy"></iframe>
+</div>
+
+<p style="color:#999;font-size:11px;">Si les cartes s'affichent ci-dessus avec les overlays Napoleon sur fond Leaflet, l'integration GitHub Pages est validee.</p>
+</body>
+</html>
