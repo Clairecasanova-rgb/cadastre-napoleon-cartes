@@ -18,8 +18,8 @@ box-shadow:2px 2px 8px rgba(0,0,0,.3);max-width:360px;max-height:calc(100vh - 40
 <body><div id="map"></div>
 <button id="panel-open" onclick="document.getElementById('panel').style.display='';this.style.display='none'" title="Afficher la legende">Legende</button>
 <div id="panel" style="position:relative"><button id="panel-close" onclick="this.parentElement.style.display='none';document.getElementById('panel-open').style.display=''" title="Fermer">&times;</button><h3>BRANDO</h3>
-<div class="sub">Cadastre napoleonien - 19 section(s)</div>
-<div class="sub">11/02/2026 00:58</div><hr>
+<div class="sub">Cadastre napoleonien - 20 section(s)</div>
+<div class="sub">11/02/2026 17:34</div><hr>
 <b style="font-size:12px">Opacite par section</b><label style="display:flex;align-items:center;gap:6px;margin:3px 0">
 <span style="width:12px;height:12px;background:#e41a1c;border-radius:2px;display:inline-block"></span>
 <span style="min-width:90px;font-size:12px">A</span>
@@ -115,6 +115,11 @@ box-shadow:2px 2px 8px rgba(0,0,0,.3);max-width:360px;max-height:calc(100vh - 40
 <span style="min-width:90px;font-size:12px">C</span>
 <input type="range" min="0" max="100" value="100" style="width:100px"
  oninput="ov18.setOpacity(this.value/100);this.nextElementSibling.textContent=this.value+'%'">
+<span style="font-size:11px;width:30px">100%</span></label><label style="display:flex;align-items:center;gap:6px;margin:3px 0">
+<span style="width:12px;height:12px;background:#a65628;border-radius:2px;display:inline-block"></span>
+<span style="min-width:90px;font-size:12px">C</span>
+<input type="range" min="0" max="100" value="100" style="width:100px"
+ oninput="ov19.setOpacity(this.value/100);this.nextElementSibling.textContent=this.value+'%'">
 <span style="font-size:11px;width:30px">100%</span></label><hr>
 <div class="sub">Polygones = cadastre moderne (API Carto IGN)</div></div>
 <script>
@@ -127,7 +132,7 @@ var RotatedOverlay=L.Layer.extend({
  _update:function(){if(!this._map||!this._img)return;var w=this._img.naturalWidth,h=this._img.naturalHeight;if(!w||!h)return;var tl=this._map.latLngToLayerPoint(this._tl),tr=this._map.latLngToLayerPoint(this._tr),bl=this._map.latLngToLayerPoint(this._bl);var a=(tr.x-tl.x)/w,b=(bl.x-tl.x)/h,c=(tr.y-tl.y)/w,d=(bl.y-tl.y)/h;this._img.style.transformOrigin='0 0';this._img.style.transform='matrix('+a+','+c+','+b+','+d+','+tl.x+','+tl.y+')';this._img.style.width=w+'px';this._img.style.height=h+'px'}
 });
 
-var map=L.map('map').setView([42.77830020,9.45036538],14);
+var map=L.map('map').setView([42.77823447,9.45036538],14);
 
 var geopfPM='https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}';
 var baseLayers={
@@ -170,25 +175,25 @@ L.polygon([[42.7840143570,9.4685349667],
  {color:'#ff7f00',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('A/3_PFi_043-3');
 
 var ov2=new RotatedOverlay('https://lh3.googleusercontent.com/d/1l1rietbBDQwSAFgFHLQOkYFuDLvSZ05b',
- [42.7850217445,9.4668017216],
- [42.7809420084,9.4829600517],
- [42.7789751889,9.4638762060],
+ [42.7844522417,9.4689106040],
+ [42.7815137638,9.4808517411],
+ [42.7783990634,9.4659280420],
  {opacity:1.0}).addTo(map);
-L.polygon([[42.7850217445,9.4668017216],
- [42.7809420084,9.4829600517],
- [42.7748954527,9.4800345361],
- [42.7789751889,9.4638762060]],
+L.polygon([[42.7844522417,9.4689106040],
+ [42.7815137638,9.4808517411],
+ [42.7754605855,9.4778691791],
+ [42.7783990634,9.4659280420]],
  {color:'#4daf4a',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('A/3_PFi_043-4');
 
 var ov3=new RotatedOverlay('https://lh3.googleusercontent.com/d/1ssXocc4l2HaweidJo6mSREldvByY7wcH',
- [42.7880323415,9.4698682107],
- [42.7752892647,9.4691926669],
- [42.7882562416,9.4612015768],
+ [42.7864061995,9.4698083619],
+ [42.7770395290,9.4694531375],
+ [42.7865961971,9.4610097657],
  {opacity:1.0}).addTo(map);
-L.polygon([[42.7880323415,9.4698682107],
- [42.7752892647,9.4691926669],
- [42.7755131648,9.4605260331],
- [42.7882562416,9.4612015768]],
+L.polygon([[42.7864061995,9.4698083619],
+ [42.7770395290,9.4694531375],
+ [42.7772295266,9.4606545413],
+ [42.7865961971,9.4610097657]],
  {color:'#984ea3',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('A/3_PFi_043-5');
 
 var ov4=new RotatedOverlay('https://lh3.googleusercontent.com/d/1AtXOOPA5puOxLbCJY-O53Lmlzlg99Pmx',
@@ -225,14 +230,14 @@ L.polygon([[42.7746808068,9.4666412853],
  {color:'#f781bf',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('B/3_PFi_043-10');
 
 var ov7=new RotatedOverlay('https://lh3.googleusercontent.com/d/1sp88_5nIbu1FHvzJyDkg2yGn5In4MfCl',
- [42.7763639234,9.4509029255],
- [42.7747933805,9.4679959699],
- [42.7699437677,9.4498851919],
+ [42.7761494042,9.4531014870],
+ [42.7749884543,9.4658157924],
+ [42.7697151642,9.4520882014],
  {opacity:1.0}).addTo(map);
-L.polygon([[42.7763639234,9.4509029255],
- [42.7747933805,9.4679959699],
- [42.7683732248,9.4669782363],
- [42.7699437677,9.4498851919]],
+L.polygon([[42.7761494042,9.4531014870],
+ [42.7749884543,9.4658157924],
+ [42.7685542142,9.4648025068],
+ [42.7697151642,9.4520882014]],
  {color:'#e41a1c',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('B/3_PFi_043-11');
 
 var ov8=new RotatedOverlay('https://lh3.googleusercontent.com/d/1LgjN79XtWpg46zDvtk_zafP4URzvfyTY',
@@ -302,6 +307,17 @@ L.polygon([[42.7611590078,9.4584180025],
  {color:'#f781bf',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-15');
 
 var ov14=new RotatedOverlay('https://lh3.googleusercontent.com/d/1BnNxQBwrZHmdCFYuiv1kkVbyhYwl1o_N',
+ [42.7619067267,9.4681606674],
+ [42.7524079614,9.4690485183],
+ [42.7614446853,9.4591992791],
+ {opacity:1.0}).addTo(map);
+L.polygon([[42.7619067267,9.4681606674],
+ [42.7524079614,9.4690485183],
+ [42.7519459200,9.4600871299],
+ [42.7614446853,9.4591992791]],
+ {color:'#e41a1c',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-16');
+
+var ov15=new RotatedOverlay('https://lh3.googleusercontent.com/d/1MKBRYXQhQGYsZpfLpVXvuGFENDCk51EU',
  [42.7597948968,9.4483928948],
  [42.7627116567,9.4597810931],
  [42.7535454378,9.4514193006],
@@ -310,9 +326,9 @@ L.polygon([[42.7597948968,9.4483928948],
  [42.7627116567,9.4597810931],
  [42.7564621978,9.4628074988],
  [42.7535454378,9.4514193006]],
- {color:'#e41a1c',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-17');
+ {color:'#ff7f00',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-17');
 
-var ov15=new RotatedOverlay('https://lh3.googleusercontent.com/d/1MKBRYXQhQGYsZpfLpVXvuGFENDCk51EU',
+var ov16=new RotatedOverlay('https://lh3.googleusercontent.com/d/1O3I888fOpm_mfKmRhXGmtPuNC1ZqXiCU',
  [42.7802043322,9.4125053061],
  [42.7782021538,9.4645819543],
  [42.7540795710,9.4109256721],
@@ -321,20 +337,20 @@ L.polygon([[42.7802043322,9.4125053061],
  [42.7782021538,9.4645819543],
  [42.7520773926,9.4630023204],
  [42.7540795710,9.4109256721]],
- {color:'#ff7f00',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-18');
-
-var ov16=new RotatedOverlay('https://lh3.googleusercontent.com/d/1O3I888fOpm_mfKmRhXGmtPuNC1ZqXiCU',
- [42.7701404007,9.4516681011],
- [42.7590264134,9.4609564352],
- [42.7666110751,9.4439658424],
- {opacity:1.0}).addTo(map);
-L.polygon([[42.7701404007,9.4516681011],
- [42.7590264134,9.4609564352],
- [42.7554970878,9.4532541764],
- [42.7666110751,9.4439658424]],
- {color:'#4daf4a',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-19');
+ {color:'#4daf4a',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-18');
 
 var ov17=new RotatedOverlay('https://lh3.googleusercontent.com/d/1L0yZGGfpLxGJHfiTIz0YhsokhJMe4oQe',
+ [42.7685545324,9.4529812220],
+ [42.7605337291,9.4597254249],
+ [42.7650694865,9.4451744941],
+ {opacity:1.0}).addTo(map);
+L.polygon([[42.7685545324,9.4529812220],
+ [42.7605337291,9.4597254249],
+ [42.7570486832,9.4519186970],
+ [42.7650694865,9.4451744941]],
+ {color:'#984ea3',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-19');
+
+var ov18=new RotatedOverlay('https://lh3.googleusercontent.com/d/13Ro-gKbKX-9Gq63FeRg5rkpHN9Rorh7a',
  [42.7715839773,9.4587918619],
  [42.7635797103,9.4655991109],
  [42.7682004592,9.4514046051],
@@ -343,9 +359,9 @@ L.polygon([[42.7715839773,9.4587918619],
  [42.7635797103,9.4655991109],
  [42.7601961922,9.4582118541],
  [42.7682004592,9.4514046051]],
- {color:'#984ea3',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-20');
+ {color:'#377eb8',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-20');
 
-var ov18=new RotatedOverlay('https://lh3.googleusercontent.com/d/13Ro-gKbKX-9Gq63FeRg5rkpHN9Rorh7a',
+var ov19=new RotatedOverlay('./overlay_19.png',
  [42.7656269921,9.4546319792],
  [42.7732922623,9.4585516537],
  [42.7634203787,9.4628622280],
@@ -354,7 +370,7 @@ L.polygon([[42.7656269921,9.4546319792],
  [42.7732922623,9.4585516537],
  [42.7710856489,9.4667819026],
  [42.7634203787,9.4628622280]],
- {color:'#377eb8',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-21');
+ {color:'#a65628',weight:2,fill:false,dashArray:'5,5'}).addTo(map).bindTooltip('C/3_PFi_043-21');
 
-map.fitBounds([[42.75207739260021,9.405651510201304],[42.80452301140838,9.495079250272909]],{padding:[30,30]});
+map.fitBounds([[42.75194592000643,9.405651510201304],[42.80452301140838,9.495079250272909]],{padding:[30,30]});
 </script></body></html>
